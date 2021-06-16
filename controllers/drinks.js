@@ -2,7 +2,7 @@ const Drink = require('../models/Drink')
 
 const controllers = {
   getAllDrinks: async (req, res) => {
-    const getAllDrinks = await Drink.find()
+    const getAllDrinks = await Drink.find({ }, { name: 1, cost: 1 } )
     res.json(getAllDrinks)
   },
   getDrinksById: async (req, res) => {
