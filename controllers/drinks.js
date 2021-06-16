@@ -2,6 +2,8 @@ const Drink = require("../models/Drink");
 
 const controllers = {
   getAllDrinks: async (req, res) => {
+    //позволяет выводить только те документы, которые мы указали, 1 либо true используется, чтобы вывести именно их
+    // id автоматически выводится
     const getAllDrinks = await Drink.find({}, { name: 1, cost: 1 });
     res.json(getAllDrinks);
   },
@@ -39,6 +41,7 @@ const controllers = {
     res.json(patchDrink);
   },
   getInStockDrink: async (req, res) => {
+    //позволяет выводить только те напитки, которые есть в наличии inStock, где значение true
     const getInStockDrink = await Drink.find({inStock: true});
     res.json(getInStockDrink);
   },
